@@ -3,883 +3,1038 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>迅策科技 03317.HK — 深度研究</title>
+<title>迅策科技（03317.HK）深度研究报告</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&family=Source+Han+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
 <style>
+  /* ===== Design DNA: Academic Rigor ===== */
   :root {
-    --bg-deep: #0a0c10;
-    --bg-card: #12151c;
-    --bg-card-hover: #181c26;
-    --border: rgba(255,255,255,0.06);
-    --text-primary: #e8eaf0;
-    --text-secondary: #8a8f9e;
-    --text-muted: #555a6b;
-    --accent-blue: #3b7dff;
-    --accent-cyan: #00d4aa;
-    --accent-orange: #ff8a3d;
-    --accent-red: #ff4d6a;
-    --accent-purple: #a855f7;
-    --gradient-hero: linear-gradient(135deg, #0a0c10 0%, #0f1520 40%, #0a1628 100%);
-    --gradient-accent: linear-gradient(135deg, #3b7dff 0%, #00d4aa 100%);
-    --gradient-token: linear-gradient(135deg, #ff8a3d 0%, #ff4d6a 100%);
+    /* Color System — Monochromatic Blue-Grey Academic */
+    --color-primary: #1a2744;
+    --color-primary-light: #2c3e6b;
+    --color-primary-muted: #4a5f8a;
+    --color-secondary: #6b7c9a;
+    --color-accent: #c8a44e;
+    --color-accent-muted: #b8973f;
+    --neutral-50: #fafafa;
+    --neutral-100: #f5f5f4;
+    --neutral-200: #e7e5e4;
+    --neutral-300: #d6d3d1;
+    --neutral-400: #a8a29e;
+    --neutral-500: #78716c;
+    --neutral-600: #57534e;
+    --neutral-700: #44403c;
+    --neutral-800: #292524;
+    --neutral-900: #1c1917;
+    --surface-bg: #ffffff;
+    --surface-card: #fafaf9;
+    --surface-elevated: #ffffff;
+    --surface-muted: #f5f5f4;
+    --text-primary: #1c1917;
+    --text-secondary: #57534e;
+    --text-tertiary: #78716c;
+    --text-caption: #a8a29e;
+    --border-subtle: #e7e5e4;
+    --border-default: #d6d3d1;
+    --border-strong: #a8a29e;
+    --semantic-positive: #2d6a4f;
+    --semantic-positive-bg: #d8f3dc;
+    --semantic-caution: #9a6d0f;
+    --semantic-caution-bg: #fef3c7;
+    --semantic-negative: #9b2226;
+    --semantic-negative-bg: #fee2e2;
+    --semantic-info: #1a2744;
+    --semantic-info-bg: #dbeafe;
+
+    /* Typography */
+    --font-heading: 'Crimson Pro', 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif;
+    --font-body: 'Noto Serif SC', 'Crimson Pro', Georgia, serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+    /* Spacing — 4px base */
+    --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+    --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+    --sp-12: 48px; --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
+
+    /* Shape */
+    --radius-sm: 2px; --radius-md: 4px; --radius-lg: 6px;
+
+    /* Elevation — minimal academic */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+    --shadow-lg: 0 4px 16px rgba(0,0,0,0.08);
+
+    /* Motion — minimal functional */
+    --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --duration-micro: 150ms;
+    --duration-normal: 300ms;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html {
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: #2a2e3a #0a0c10;
-  }
+  html { scroll-behavior: smooth; font-size: 16px; }
 
   body {
-    font-family: 'DM Sans', -apple-system, sans-serif;
-    background: var(--bg-deep);
+    font-family: var(--font-body);
+    background: var(--surface-bg);
     color: var(--text-primary);
-    line-height: 1.7;
-    overflow-x: hidden;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  /* ===== NAV ===== */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    backdrop-filter: blur(20px);
-    background: rgba(10,12,16,0.8);
-    border-bottom: 1px solid var(--border);
-    transition: all 0.3s;
-  }
-  nav .inner {
-    max-width: 1200px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 32px;
-  }
-  nav .brand {
-    font-family: 'Noto Serif SC', serif;
-    font-weight: 900; font-size: 18px;
-    background: var(--gradient-accent);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  nav .ticker {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px; color: var(--text-muted);
-    background: rgba(255,255,255,0.04);
-    padding: 4px 12px; border-radius: 6px;
-    border: 1px solid var(--border);
-  }
-  nav .nav-links { display: flex; gap: 8px; }
-  nav .nav-links a {
-    color: var(--text-secondary); text-decoration: none;
-    font-size: 13px; padding: 6px 14px; border-radius: 6px;
-    transition: all 0.2s;
-  }
-  nav .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
-
-  /* ===== HERO ===== */
-  .hero {
-    min-height: 100vh;
-    background: var(--gradient-hero);
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-    padding: 120px 32px 80px;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; top: -200px; right: -200px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(59,125,255,0.08) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: pulse 8s ease-in-out infinite;
-  }
-  .hero::after {
-    content: '';
-    position: absolute; bottom: -100px; left: -100px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: pulse 6s ease-in-out infinite reverse;
-  }
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.15); opacity: 0.7; }
-  }
-  .hero-content {
-    max-width: 900px; text-align: center;
-    position: relative; z-index: 1;
-  }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(59,125,255,0.1);
-    border: 1px solid rgba(59,125,255,0.2);
-    padding: 8px 20px; border-radius: 100px;
-    font-size: 13px; color: var(--accent-blue);
-    margin-bottom: 32px;
-    animation: fadeInUp 0.8s ease-out;
-  }
-  .hero-badge .dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent-cyan);
-    animation: blink 2s ease-in-out infinite;
-  }
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-  .hero h1 {
-    font-family: 'Noto Serif SC', serif;
-    font-size: clamp(42px, 6vw, 72px);
-    font-weight: 900;
-    line-height: 1.15;
-    margin-bottom: 24px;
-    animation: fadeInUp 0.8s ease-out 0.1s both;
-  }
-  .hero h1 .accent {
-    background: var(--gradient-accent);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .hero .subtitle {
-    font-size: 18px; color: var(--text-secondary);
-    max-width: 640px; margin: 0 auto 48px;
-    line-height: 1.8;
-    animation: fadeInUp 0.8s ease-out 0.2s both;
-  }
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 16px;
-    animation: fadeInUp 0.8s ease-out 0.3s both;
-  }
-  .hero-stat {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 16px;
+  /* ===== HEADER / MASTHEAD ===== */
+  .masthead {
+    background: var(--color-primary);
+    color: #fff;
+    padding: var(--sp-16) var(--sp-8) var(--sp-12);
     text-align: center;
-    transition: all 0.3s;
+    position: relative;
+    border-bottom: 3px solid var(--color-accent);
   }
-  .hero-stat:hover {
-    background: rgba(255,255,255,0.05);
-    border-color: rgba(59,125,255,0.2);
-    transform: translateY(-2px);
+  .masthead .report-type {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--sp-4);
   }
-  .hero-stat .value {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 28px; font-weight: 700;
-    background: var(--gradient-accent);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    line-height: 1.2;
+  .masthead h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: var(--sp-3);
+    letter-spacing: -0.5px;
   }
-  .hero-stat .value.orange {
-    background: var(--gradient-token);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  .masthead .subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    max-width: 640px;
+    margin: 0 auto var(--sp-8);
+    line-height: 1.7;
   }
-  .hero-stat .label {
-    font-size: 12px; color: var(--text-muted);
-    margin-top: 6px; text-transform: uppercase;
+  .masthead .meta-row {
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-8);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
     letter-spacing: 0.5px;
   }
+  .masthead .meta-row span { display: flex; align-items: center; gap: 6px; }
 
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
+  /* ===== NAV ===== */
+  .toc-bar {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--surface-bg);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-sm);
+  }
+  .toc-inner {
+    max-width: 860px; margin: 0 auto;
+    display: flex; align-items: center;
+    padding: 0 var(--sp-6);
+    overflow-x: auto;
+    gap: 0;
+  }
+  .toc-inner a {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    padding: 12px 16px;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all var(--duration-micro) var(--ease);
+  }
+  .toc-inner a:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  /* ===== CONTENT ===== */
+  .paper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: var(--sp-16) var(--sp-8);
+  }
+
+  /* ===== ABSTRACT ===== */
+  .abstract {
+    background: var(--surface-muted);
+    border-left: 3px solid var(--color-primary);
+    padding: var(--sp-8) var(--sp-10);
+    margin-bottom: var(--sp-16);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .abstract .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-primary-muted);
+    margin-bottom: var(--sp-3);
+  }
+  .abstract p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.9;
+  }
+
+  /* ===== KEY METRICS ===== */
+  .metrics-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: var(--sp-16);
+  }
+  .metric {
+    background: var(--surface-bg);
+    padding: var(--sp-6) var(--sp-5);
+    text-align: center;
+  }
+  .metric .m-value {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-primary);
+    line-height: 1.2;
+  }
+  .metric .m-value.accent { color: var(--color-accent-muted); }
+  .metric .m-label {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    margin-top: var(--sp-1);
+    line-height: 1.4;
   }
 
   /* ===== SECTIONS ===== */
-  section {
-    max-width: 1200px; margin: 0 auto;
-    padding: 80px 32px;
+  .section {
+    margin-bottom: var(--sp-20);
   }
-  .section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; color: var(--accent-blue);
-    text-transform: uppercase; letter-spacing: 2px;
-    margin-bottom: 12px;
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-primary-muted);
+    letter-spacing: 1px;
+    margin-bottom: var(--sp-2);
   }
-  .section-title {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 36px; font-weight: 900;
-    margin-bottom: 12px; line-height: 1.3;
+  .section h2 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1.35;
+    margin-bottom: var(--sp-6);
+    padding-bottom: var(--sp-3);
+    border-bottom: 1px solid var(--border-subtle);
   }
-  .section-desc {
-    color: var(--text-secondary); font-size: 16px;
-    max-width: 640px; margin-bottom: 48px;
+  .section h3 {
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--neutral-800);
+    margin-top: var(--sp-10);
+    margin-bottom: var(--sp-4);
+    line-height: 1.4;
+  }
+  .section p {
+    font-size: 15.5px;
+    color: var(--text-secondary);
+    margin-bottom: var(--sp-5);
+    line-height: 1.9;
+  }
+  .section p.lead {
+    font-size: 16.5px;
+    color: var(--text-primary);
+    font-weight: 400;
+    line-height: 1.85;
+  }
+  .section p strong {
+    color: var(--text-primary);
+    font-weight: 600;
   }
 
-  /* ===== POSITIONING ===== */
-  .position-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  /* ===== CALLOUT ===== */
+  .callout {
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    padding: var(--sp-6) var(--sp-8);
+    margin: var(--sp-8) 0;
+    background: var(--surface-card);
   }
-  @media (max-width: 768px) { .position-grid { grid-template-columns: 1fr; } }
-  .pos-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
-    transition: all 0.3s;
-    position: relative;
+  .callout.insight {
+    border-left: 3px solid var(--color-accent);
+    background: #fdfbf5;
+  }
+  .callout .co-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-accent-muted);
+    margin-bottom: var(--sp-2);
+  }
+  .callout p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+  }
+
+  /* ===== DATA TABLE ===== */
+  .data-table-wrap {
+    overflow-x: auto;
+    margin: var(--sp-6) 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .data-table thead th {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    background: var(--surface-muted);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-default);
+    font-weight: 500;
+  }
+  .data-table tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    vertical-align: top;
+  }
+  .data-table tbody tr:last-child td { border-bottom: none; }
+  .data-table tbody tr:hover { background: var(--surface-muted); }
+  .data-table .mono {
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .data-table .tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    line-height: 1.6;
+  }
+  .tag.positive { color: var(--semantic-positive); background: var(--semantic-positive-bg); }
+  .tag.caution { color: var(--semantic-caution); background: var(--semantic-caution-bg); }
+  .tag.negative { color: var(--semantic-negative); background: var(--semantic-negative-bg); }
+  .tag.info { color: var(--semantic-info); background: var(--semantic-info-bg); }
+  .stars { color: var(--color-accent-muted); font-size: 14px; letter-spacing: 1px; }
+
+  /* ===== EVOLUTION DIAGRAM ===== */
+  .evolution {
+    display: flex;
+    align-items: stretch;
+    margin: var(--sp-8) 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
     overflow: hidden;
   }
-  .pos-card:hover {
-    border-color: rgba(59,125,255,0.15);
-    background: var(--bg-card-hover);
-  }
-  .pos-card .icon {
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-  .pos-card .icon.blue { background: rgba(59,125,255,0.12); }
-  .pos-card .icon.cyan { background: rgba(0,212,170,0.12); }
-  .pos-card .icon.orange { background: rgba(255,138,61,0.12); }
-  .pos-card .icon.purple { background: rgba(168,85,247,0.12); }
-  .pos-card h3 {
-    font-size: 18px; font-weight: 700;
-    margin-bottom: 12px;
-  }
-  .pos-card p {
-    color: var(--text-secondary); font-size: 14px; line-height: 1.8;
-  }
-  .pos-card.full-width {
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, rgba(59,125,255,0.06) 0%, rgba(0,212,170,0.04) 100%);
-    border-color: rgba(59,125,255,0.12);
-  }
-
-  /* ===== FINANCIAL ===== */
-  .fin-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-  }
-  .fin-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px;
-    transition: all 0.3s;
-  }
-  .fin-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(59,125,255,0.15);
-  }
-  .fin-card .fin-label {
-    font-size: 12px; color: var(--text-muted);
-    text-transform: uppercase; letter-spacing: 0.5px;
-    margin-bottom: 8px;
-  }
-  .fin-card .fin-value {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 26px; font-weight: 700;
-    margin-bottom: 6px;
-  }
-  .fin-card .fin-change {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    display: inline-flex; align-items: center; gap: 4px;
-    padding: 3px 10px; border-radius: 6px;
-  }
-  .fin-card .fin-change.up {
-    color: var(--accent-cyan);
-    background: rgba(0,212,170,0.1);
-  }
-  .fin-card .fin-change.down {
-    color: var(--accent-red);
-    background: rgba(255,77,106,0.1);
-  }
-  .fin-card .fin-note {
-    font-size: 12px; color: var(--text-muted); margin-top: 8px;
-  }
-
-  /* ===== BUSINESS MODEL ===== */
-  .evolution-track {
-    display: flex; gap: 0; align-items: stretch;
-    margin: 40px 0;
-    position: relative;
-  }
-  .evo-step {
+  .evo-stage {
     flex: 1;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 32px 24px;
+    padding: var(--sp-8) var(--sp-6);
+    border-right: 1px solid var(--border-subtle);
     position: relative;
-    transition: all 0.3s;
   }
-  .evo-step:first-child { border-radius: 16px 0 0 16px; }
-  .evo-step:last-child { border-radius: 0 16px 16px 0; }
-  .evo-step:not(:last-child)::after {
-    content: '→';
-    position: absolute; right: -14px; top: 50%;
+  .evo-stage:last-child { border-right: none; }
+  .evo-stage.current {
+    background: var(--semantic-info-bg);
+    border-right: 1px solid var(--color-primary-muted);
+  }
+  .evo-stage .evo-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-caption);
+    margin-bottom: var(--sp-2);
+  }
+  .evo-stage.current .evo-num { color: var(--color-primary); }
+  .evo-stage .evo-title {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--sp-2);
+  }
+  .evo-stage .evo-desc {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    line-height: 1.7;
+    margin-bottom: var(--sp-3);
+  }
+  .evo-stage .evo-pct {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  .evo-stage.current .evo-pct { color: var(--semantic-caution); }
+  .evo-arrow {
+    position: absolute;
+    right: -8px;
+    top: 50%;
     transform: translateY(-50%);
     z-index: 2;
-    font-size: 20px; color: var(--text-muted);
-    background: var(--bg-deep);
-    padding: 4px;
-  }
-  .evo-step:hover { background: var(--bg-card-hover); }
-  .evo-step .evo-phase {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; color: var(--accent-blue);
-    text-transform: uppercase; letter-spacing: 1px;
-    margin-bottom: 8px;
-  }
-  .evo-step .evo-name {
-    font-size: 18px; font-weight: 700;
-    margin-bottom: 8px;
-  }
-  .evo-step .evo-desc {
-    font-size: 13px; color: var(--text-secondary); line-height: 1.7;
-  }
-  .evo-step .evo-pct {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 32px; font-weight: 700;
-    margin-top: 16px;
-  }
-  .evo-step .evo-pct.blue { color: var(--accent-blue); }
-  .evo-step .evo-pct.cyan { color: var(--accent-cyan); }
-  .evo-step .evo-pct.orange { color: var(--accent-orange); }
-  .evo-step.current {
-    background: linear-gradient(135deg, rgba(255,138,61,0.06) 0%, rgba(255,77,106,0.04) 100%);
-    border-color: rgba(255,138,61,0.2);
+    width: 16px; height: 16px;
+    background: var(--surface-bg);
+    border: 1px solid var(--border-default);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; color: var(--text-caption);
   }
 
   @media (max-width: 768px) {
-    .evolution-track { flex-direction: column; }
-    .evo-step { border-radius: 12px !important; }
-    .evo-step:not(:last-child)::after { display: none; }
+    .evolution { flex-direction: column; }
+    .evo-stage { border-right: none; border-bottom: 1px solid var(--border-subtle); }
+    .evo-stage:last-child { border-bottom: none; }
+    .evo-arrow { display: none; }
   }
 
-  /* ===== TRACKING VARS ===== */
-  .track-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-  }
-  .track-table thead th {
-    text-align: left;
-    padding: 16px 24px;
-    font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-    background: rgba(255,255,255,0.02);
-  }
-  .track-table tbody td {
-    padding: 16px 24px;
-    font-size: 14px;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.2s;
-  }
-  .track-table tbody tr:last-child td { border-bottom: none; }
-  .track-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
-  .track-table .stars {
-    color: var(--accent-orange);
-    font-size: 13px;
-    letter-spacing: 1px;
-  }
-  .track-table .status-tag {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 12px; padding: 4px 12px; border-radius: 6px;
-  }
-  .status-tag.verified { color: var(--accent-cyan); background: rgba(0,212,170,0.1); }
-  .status-tag.pending { color: var(--accent-orange); background: rgba(255,138,61,0.1); }
-  .status-tag.watch { color: var(--accent-blue); background: rgba(59,125,255,0.1); }
-
-  /* ===== LOGIC VALIDATION ===== */
-  .logic-grid {
+  /* ===== LOGIC CHECK ===== */
+  .logic-checks {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: var(--sp-6);
   }
-  @media (max-width: 768px) { .logic-grid { grid-template-columns: 1fr; } }
-  .logic-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
+  @media (max-width: 768px) { .logic-checks { grid-template-columns: 1fr; } }
+  .logic-box {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--sp-8);
   }
-  .logic-card h3 {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 20px; font-weight: 700;
-    margin-bottom: 20px;
-    display: flex; align-items: center; gap: 10px;
+  .logic-box h3 {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: var(--sp-5);
+    display: flex; align-items: center; gap: var(--sp-2);
   }
-  .logic-card h3 .tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; padding: 3px 10px; border-radius: 4px;
-    text-transform: uppercase; letter-spacing: 0.5px;
+  .logic-box h3 .ltype {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
   }
-  .tag.short { color: var(--accent-cyan); background: rgba(0,212,170,0.1); }
-  .tag.long { color: var(--accent-blue); background: rgba(59,125,255,0.1); }
-  .check-list { list-style: none; }
-  .check-list li {
-    padding: 10px 0;
-    font-size: 14px; color: var(--text-secondary);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: flex-start; gap: 10px;
+  .ltype.short { color: var(--semantic-positive); background: var(--semantic-positive-bg); }
+  .ltype.long { color: var(--semantic-info); background: var(--semantic-info-bg); }
+  .check-item {
+    display: flex;
+    gap: var(--sp-3);
+    padding: var(--sp-3) 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 14px;
+    color: var(--text-secondary);
     line-height: 1.7;
   }
-  .check-list li:last-child { border-bottom: none; }
-  .check-list li .check {
+  .check-item:last-child { border-bottom: none; }
+  .check-icon {
     flex-shrink: 0;
-    width: 20px; height: 20px;
-    border-radius: 6px;
+    width: 18px; height: 18px;
+    border-radius: var(--radius-sm);
     display: flex; align-items: center; justify-content: center;
-    font-size: 12px; margin-top: 2px;
+    font-size: 11px;
+    margin-top: 3px;
   }
-  .check.yes { background: rgba(0,212,170,0.15); color: var(--accent-cyan); }
-  .check.warn { background: rgba(255,138,61,0.15); color: var(--accent-orange); }
+  .check-icon.pass { background: var(--semantic-positive-bg); color: var(--semantic-positive); }
+  .check-icon.warn { background: var(--semantic-caution-bg); color: var(--semantic-caution); }
 
-  /* ===== RISKS ===== */
-  .risk-grid {
+  /* ===== RISK LIST ===== */
+  .risk-list {
+    list-style: none;
+    margin: var(--sp-6) 0;
+  }
+  .risk-list li {
+    padding: var(--sp-5) 0;
+    border-bottom: 1px solid var(--border-subtle);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
+    grid-template-columns: 60px 1fr;
+    gap: var(--sp-4);
+    align-items: start;
   }
-  .risk-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent-red);
-    border-radius: 0 14px 14px 0;
-    padding: 24px;
-    transition: all 0.3s;
-  }
-  .risk-card:hover { background: var(--bg-card-hover); }
-  .risk-card .risk-level {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
-    margin-bottom: 8px;
-  }
-  .risk-card .risk-level.high { color: var(--accent-red); }
-  .risk-card .risk-level.medium { color: var(--accent-orange); }
-  .risk-card h4 { font-size: 15px; margin-bottom: 8px; }
-  .risk-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
-
-  /* ===== VERDICT ===== */
-  .verdict {
-    background: linear-gradient(135deg, rgba(59,125,255,0.06) 0%, rgba(0,212,170,0.04) 100%);
-    border: 1px solid rgba(59,125,255,0.12);
-    border-radius: 20px;
-    padding: 48px;
+  .risk-list li:last-child { border-bottom: none; }
+  .risk-level {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    line-height: 1.6;
   }
-  .verdict::before {
-    content: '';
-    position: absolute; top: -60px; right: -60px;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
-    border-radius: 50%;
+  .risk-level.high { color: var(--semantic-negative); background: var(--semantic-negative-bg); }
+  .risk-level.medium { color: var(--semantic-caution); background: var(--semantic-caution-bg); }
+  .risk-body h4 {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: var(--sp-1);
+    color: var(--text-primary);
   }
-  .verdict .icon-big {
-    font-size: 48px; margin-bottom: 20px;
+  .risk-body p {
+    font-size: 13.5px;
+    color: var(--text-tertiary);
+    line-height: 1.75;
+    margin-bottom: 0;
   }
-  .verdict h3 {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 28px; font-weight: 900;
-    margin-bottom: 20px; line-height: 1.4;
+
+  /* ===== CONCLUSION ===== */
+  .conclusion {
+    background: var(--surface-muted);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--sp-12) var(--sp-10);
+    text-align: center;
   }
-  .verdict p {
-    font-size: 16px; color: var(--text-secondary);
-    max-width: 680px; margin: 0 auto;
+  .conclusion h2 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--sp-6);
+    line-height: 1.4;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .conclusion p {
+    font-size: 15.5px;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto var(--sp-5);
     line-height: 1.9;
   }
-  .verdict .disclaimer {
-    font-size: 12px; color: var(--text-muted);
-    margin-top: 32px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
+  .conclusion .disclaimer {
+    font-size: 12px;
+    color: var(--text-caption);
+    margin-top: var(--sp-8);
+    padding-top: var(--sp-5);
+    border-top: 1px solid var(--border-default);
+    font-style: italic;
   }
 
   /* ===== FOOTER ===== */
-  footer {
-    max-width: 1200px; margin: 0 auto;
-    padding: 32px;
+  .footer {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: var(--sp-8);
     text-align: center;
-    font-size: 12px; color: var(--text-muted);
-    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-caption);
+    border-top: 1px solid var(--border-subtle);
   }
 
-  /* ===== SCROLL ANIMATIONS ===== */
+  /* ===== SCROLL REVEAL ===== */
   .reveal {
-    opacity: 0; transform: translateY(30px);
-    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
   }
   .reveal.visible {
-    opacity: 1; transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .toc-bar { display: none; }
+    .masthead { border-bottom: 2px solid #000; }
+    body { font-size: 11pt; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="inner">
-    <div style="display:flex;align-items:center;gap:16px;">
-      <span class="brand">迅策科技</span>
-      <span class="ticker">03317.HK</span>
-    </div>
-    <div class="nav-links">
-      <a href="#positioning">定位</a>
-      <a href="#financials">财务</a>
-      <a href="#business">商业模式</a>
-      <a href="#tracking">跟踪变量</a>
-      <a href="#verdict">结论</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      AI 数据基础设施 · 深度研究
-    </div>
-    <h1>
-      中国版<span class="accent">Palantir</span><br>
-      数据中枢的价值重估
-    </h1>
-    <p class="subtitle">
-      迅策科技——全球唯二覆盖数据全链路AI基础设施厂商，资产管理实时数据市场份额第一，正从SaaS工具商跃迁为AI Agent赋能者
-    </p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="value">12.9亿</div>
-        <div class="label">2025 营收</div>
-      </div>
-      <div class="hero-stat">
-        <div class="value orange">+103%</div>
-        <div class="label">营收增速</div>
-      </div>
-      <div class="hero-stat">
-        <div class="value">5000万</div>
-        <div class="label">H2 经调整净利润</div>
-      </div>
-      <div class="hero-stat">
-        <div class="value orange">90%+</div>
-        <div class="label">客户留存率</div>
-      </div>
-    </div>
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="report-type">深度研究报告 · In-Depth Research Report</div>
+  <h1>迅策科技（03317.HK）<br>AI 数据基础设施的价值重估</h1>
+  <div class="subtitle">全球唯二数据全链路AI基础设施厂商——从投资逻辑、财务验证到商业模式跃迁的系统分析</div>
+  <div class="meta-row">
+    <span> ticker: 03317.HK </span>
+    <span> date: 2026-04-16 </span>
+    <span> sector: AI数据基础设施 </span>
   </div>
 </div>
 
-<!-- POSITIONING -->
-<section id="positioning" class="reveal">
-  <div class="section-label">01 / 公司定位与壁垒</div>
-  <div class="section-title">不是卖工具，是装数据神经系统</div>
-  <div class="section-desc">迅策的核心壁垒不是某项技术，而是作为"数据中枢"深度嵌入客户决策流程后的极高替换成本</div>
-
-  <div class="position-grid">
-    <div class="pos-card">
-      <div class="icon blue">🔷</div>
-      <h3>全链路覆盖</h3>
-      <p>数据"获取→清洗→标准化→Agent应用→大模型调优"完整覆盖，全球仅Palantir具备同等能力。已开发300+模块，功能跨实时数据基础设施及分析全套。</p>
-    </div>
-    <div class="pos-card">
-      <div class="icon cyan">⚡</div>
-      <h3>实时数据中枢</h3>
-      <p>乐高式模块化架构深度部署于客户私有云/本地系统，向左汇总异构数据，向右输出智能决策数据。即插即用，一旦嵌入即成数据中枢。</p>
-    </div>
-    <div class="pos-card">
-      <div class="icon orange">🔒</div>
-      <h3>极高替换成本</h3>
-      <p>客户留存率90%+。平台深度部署于客户系统形成数据中枢角色，客户从局部试点走向全业务流程嵌入，深度绑定——这不是SaaS，是基础设施。</p>
-    </div>
-    <div class="pos-card">
-      <div class="icon purple">🧠</div>
-      <h3>从工具到Agent</h3>
-      <p>AI大模型时代，定位从SaaS工具商跃迁至AI Agent赋能者。在云原生统一数据平台上提供AI实时数据基础设施及分析解决方案。</p>
-    </div>
-    <div class="pos-card full-width">
-      <h3>⚡ 核心判断</h3>
-      <p style="font-size:16px;max-width:800px;">迅策卖的不是工具，是客户决策流程的数据"神经系统"。这决定了它的粘性远高于一般SaaS——90%+留存率不是靠合同锁的，是靠业务流程深度嵌入。每个AI推理调用都经过它的管道，Token化计费让它直接从AI推理浪潮中按次收费。</p>
-    </div>
+<!-- TOC -->
+<div class="toc-bar">
+  <div class="toc-inner">
+    <a href="#abstract">摘要</a>
+    <a href="#positioning">定位与壁垒</a>
+    <a href="#financials">财务分析</a>
+    <a href="#business">商业模式</a>
+    <a href="#validation">逻辑验证</a>
+    <a href="#tracking">跟踪变量</a>
+    <a href="#risks">风险</a>
+    <a href="#conclusion">结论</a>
   </div>
-</section>
+</div>
 
-<!-- FINANCIALS -->
-<section id="financials" class="reveal">
-  <div class="section-label">02 / 财务分析</div>
-  <div class="section-title">质量增长，不是堆人换增长</div>
-  <div class="section-desc">人均创收290万在软件行业属顶级水平，收入翻倍但费用率从92%降至62%，经营杠杆明显释放</div>
+<!-- PAPER -->
+<div class="paper">
 
-  <div class="fin-grid">
-    <div class="fin-card">
-      <div class="fin-label">营业收入</div>
-      <div class="fin-value">12.9亿</div>
-      <div class="fin-change up">↑ +103% YoY</div>
-      <div class="fin-note">下半年10.87亿，环比+449%</div>
-    </div>
-    <div class="fin-card">
-      <div class="fin-label">毛利率</div>
-      <div class="fin-value">62%</div>
-      <div class="fin-change up">资管业务 >70%</div>
-      <div class="fin-note">整体稳定，资管已是优质水平</div>
-    </div>
-    <div class="fin-card">
-      <div class="fin-label">三费占比</div>
-      <div class="fin-value">62%</div>
-      <div class="fin-change up">↓ 从92%降至62%</div>
-      <div class="fin-note">规模效应释放，经营杠杆启动</div>
-    </div>
-    <div class="fin-card">
-      <div class="fin-label">ARPU</div>
-      <div class="fin-value">559万</div>
-      <div class="fin-change up">↑ +100% YoY</div>
-      <div class="fin-note">从272万翻倍，客户在加深使用</div>
-    </div>
-    <div class="fin-card">
-      <div class="fin-label">人均创收</div>
-      <div class="fin-value">290万</div>
-      <div class="fin-change up">↑ +135% YoY</div>
-      <div class="fin-note">448人团队，轻资产模型跑通</div>
-    </div>
-    <div class="fin-card">
-      <div class="fin-label">应收账期</div>
-      <div class="fin-value">131天</div>
-      <div class="fin-change up">↓ 从163天改善</div>
-      <div class="fin-note">回款加速，收入质量改善</div>
-    </div>
-    <div class="fin-card">
-      <div class="fin-label">在手现金</div>
-      <div class="fin-value">>10亿</div>
-      <div class="fin-change up">负债率仅1.5%</div>
-      <div class="fin-note">几乎零杠杆，财务极稳健</div>
-    </div>
-    <div class="fin-card">
-      <div class="fin-label">客户数</div>
-      <div class="fin-value">230个</div>
-      <div class="fin-change up">留存率 90%+</div>
-      <div class="fin-note">走精耕路线，ARPU高</div>
-    </div>
-  </div>
-</section>
-
-<!-- BUSINESS MODEL -->
-<section id="business" class="reveal">
-  <div class="section-label">03 / 商业模式跃迁</div>
-  <div class="section-title">从卖工具到卖数据燃料</div>
-  <div class="section-desc">三次跃迁，每次都意味着更高毛利率、更强可预测性、更大收入弹性</div>
-
-  <div class="evolution-track">
-    <div class="evo-step">
-      <div class="evo-phase">Phase 1</div>
-      <div class="evo-name">项目制</div>
-      <div class="evo-desc">靠实施交付，毛利受限，不可预测</div>
-      <div class="evo-pct blue">81%</div>
-    </div>
-    <div class="evo-step">
-      <div class="evo-phase">Phase 2 · 当下</div>
-      <div class="evo-name">订阅/交易制</div>
-      <div class="evo-desc">标准化提升，交易模式占比升至91%</div>
-      <div class="evo-pct cyan">91%</div>
-    </div>
-    <div class="evo-step current">
-      <div class="evo-phase">Phase 3 · 未来</div>
-      <div class="evo-name">Token按量计费</div>
-      <div class="evo-desc">目前5%，目标2026年底20-30%</div>
-      <div class="evo-pct orange">5%→30%</div>
-    </div>
-  </div>
-
-  <div class="position-grid" style="margin-top:32px;">
-    <div class="pos-card">
-      <div class="icon orange">🔥</div>
-      <h3>Token模式的本质</h3>
-      <p>从"卖工具"变成"卖数据燃料"——每多一次AI推理调用，迅策就多赚一份钱。定价维度：单次调用Token价格 × 调用次数 × 模块应用个数，并探索按价值增量效果分成。</p>
-    </div>
-    <div class="pos-card">
-      <div class="icon blue">📈</div>
-      <h3>产业趋势硬支撑</h3>
-      <p>2026年3月中国日均Token调用量已超140万亿，相比2024年初增长超1000倍。Token涨价潮叠加调用量爆发，迅策作为"数据增效方"直接受益。</p>
-    </div>
-    <div class="pos-card full-width">
-      <h3>🧮 估值逻辑升维</h3>
-      <p style="font-size:15px;max-width:800px;">市场正从<span style="color:var(--accent-blue);">"按调用量计费的规模逻辑"</span>转向<span style="color:var(--accent-orange);">"单位Token利润 × 稀缺溢价系数的质量逻辑"</span>。只要Token分成率提升，利润弹性便可实现指数级释放。这正是"中国版Palantir"叙事的真正内核。</p>
-    </div>
-  </div>
-</section>
-
-<!-- LOGIC VALIDATION -->
-<section class="reveal">
-  <div class="section-label">04 / 投资逻辑验证</div>
-  <div class="section-title">短期叙事与长期价值的交叉验证</div>
-  <div class="section-desc">基于投资逻辑框架，逐一比对当前市场状态</div>
-
-  <div class="logic-grid">
-    <div class="logic-card">
-      <h3><span class="tag short">短期逻辑</span></h3>
-      <ul class="check-list">
-        <li><span class="check yes">✓</span>AI数据基础设施叙事持续升温——行业共识从"大模型竞争"转向"AI落地竞争"</li>
-        <li><span class="check yes">✓</span>Token工厂叙事升温——涨价潮 + 日均140万亿调用量</li>
-        <li><span class="check yes">✓</span>阶段性盈利改善——2025H2首次盈利5000万</li>
-        <li><span class="check yes">✓</span>市场已开始估值重估——上市百天股价涨超6倍，中信给出160港元目标价</li>
-        <li><span class="check warn">⚠</span>当前股价220港元/市值710亿港元，涨幅已充分甚至透支部分预期</li>
-      </ul>
-    </div>
-    <div class="logic-card">
-      <h3><span class="tag long">长期逻辑</span></h3>
-      <ul class="check-list">
-        <li><span class="check yes">✓</span>资管基本盘扎实——毛利率>70%，留存率90%+</li>
-        <li><span class="check yes">✓</span>产品标准化推进——300+模块、乐高式架构</li>
-        <li><span class="check yes">✓</span>收入结构改善——交易模式81%→91%</li>
-        <li><span class="check warn">⏳</span>非金融行业复制——还在早期，需标杆案例</li>
-        <li><span class="check warn">⏳</span>海外业务——2026目标10-15%，进展待跟踪</li>
-        <li><span class="check warn">⏳</span>毛利率进一步提升——取决于实施交付占比下降</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- TRACKING -->
-<section id="tracking" class="reveal">
-  <div class="section-label">05 / 核心跟踪变量</div>
-  <div class="section-title">盯住这些，判断走向</div>
-  <div class="section-desc">按重要性排序，持续跟踪更新</div>
-
-  <table class="track-table">
-    <thead>
-      <tr>
-        <th>变量</th>
-        <th>当前状态</th>
-        <th>重要性</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>AI Token商业化落地进度</td>
-        <td><span class="status-tag pending">⏳ 5%→目标20-30%</span></td>
-        <td class="stars">★★★★★</td>
-      </tr>
-      <tr>
-        <td>Token分成率 / 单位Token利润</td>
-        <td><span class="status-tag watch">🔍 未披露，关键变量</span></td>
-        <td class="stars">★★★★★</td>
-      </tr>
-      <tr>
-        <td>资管头部客户续费率</td>
-        <td><span class="status-tag verified">✓ 90%+</span></td>
-        <td class="stars">★★★★</td>
-      </tr>
-      <tr>
-        <td>标准化收入占比</td>
-        <td><span class="status-tag verified">✓ 交易模式91%</span></td>
-        <td class="stars">★★★★</td>
-      </tr>
-      <tr>
-        <td>非金融行业标杆复制</td>
-        <td><span class="status-tag pending">⏳ 待验证</span></td>
-        <td class="stars">★★★★</td>
-      </tr>
-      <tr>
-        <td>单客户年均合同额</td>
-        <td><span class="status-tag verified">✓ ARPU 559万</span></td>
-        <td class="stars">★★★</td>
-      </tr>
-      <tr>
-        <td>毛利率 vs 实施交付依赖</td>
-        <td><span class="status-tag watch">🔍 整体62%，有空间</span></td>
-        <td class="stars">★★★</td>
-      </tr>
-      <tr>
-        <td>与大厂合作渠道转化</td>
-        <td><span class="status-tag watch">🔍 缺乏公开信息</span></td>
-        <td class="stars">★★★</td>
-      </tr>
-      <tr>
-        <td>Palantir方案国内监管适配</td>
-        <td><span class="status-tag watch">🔍 金融数据合规长期变量</span></td>
-        <td class="stars">★★</td>
-      </tr>
-      <tr>
-        <td>恺域科技关联方协同</td>
-        <td><span class="status-tag watch">🔍 边界不清</span></td>
-        <td class="stars">★★</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- RISKS -->
-<section class="reveal">
-  <div class="section-label">06 / 风险提示</div>
-  <div class="section-title">需要警惕的不确定性</div>
-
-  <div class="risk-grid">
-    <div class="risk-card">
-      <div class="risk-level high">高风险</div>
-      <h4>估值已充分反映预期</h4>
-      <p>千亿市值对应12.9亿营收，PS约55倍。股价6倍涨幅后回调风险不可忽视，情绪退潮时估值回调可能剧烈。</p>
-    </div>
-    <div class="risk-card">
-      <div class="risk-level high">高风险</div>
-      <h4>Token模式执行风险</h4>
-      <p>5%→20-30%的目标还需要时间验证。Token分成率未披露，若低于预期则估值升维逻辑不成立。</p>
-    </div>
-    <div class="risk-card">
-      <div class="risk-level medium">中风险</div>
-      <h4>行业复制天花板</h4>
-      <p>非金融行业复制若不及预期，增长天花板受限。当前收入仍高度依赖资管行业。</p>
-    </div>
-    <div class="risk-card">
-      <div class="risk-level medium">中风险</div>
-      <h4>港股流动性波动</h4>
-      <p>港股市场流动性敏感，南向资金和外资情绪对股价影响大，波动性高于A股/美股。</p>
-    </div>
-    <div class="risk-card">
-      <div class="risk-level medium">中风险</div>
-      <h4>监管合规风险</h4>
-      <p>金融数据基础设施的合规要求可能限制扩张速度，数据安全法和个人信息保护法带来不确定性。</p>
-    </div>
-  </div>
-</section>
-
-<!-- VERDICT -->
-<section id="verdict" class="reveal">
-  <div class="verdict">
-    <div class="icon-big">⚖️</div>
-    <h3>基本面最扎实的AI数据基础设施公司<br>但当前价位需要等待</h3>
+  <!-- ABSTRACT -->
+  <div class="abstract reveal" id="abstract">
+    <div class="label">Abstract</div>
     <p>
-      迅策是AI数据基础设施赛道里基本面最扎实的中国公司。商业模式的三次跃迁——项目制→订阅制→Token制——每次都意味着更高毛利率和更强可预测性。90%+留存率说明客户粘性不是概念，140万亿日Token调用量是硬数据，首次盈利不是终点而是起点。
-      <br><br>
-      但千亿市值对应55倍PS已充分反映预期。Token模式从5%到20-30%仍需验证，非金融行业复制还在早期。长期逻辑清晰，但当前价位需要等待更好的介入时点，或等待Token模式进一步落地来消化估值。
+      迅策科技是中国资产管理实时数据市场份额第一的AI数据基础设施厂商，定位"中国版Palantir"。2025年营收12.9亿元（同比+103%），H2首次实现经调整净利润5000万元，盈利拐点确立。公司正经历商业模式的三次跃迁——从项目制到订阅制，再到Token按量计费——每一次跃迁都意味着更高的毛利率与更强的收入弹性。本报告基于投资逻辑框架，结合信息中心数据与公开市场信息，对迅策科技进行系统性分析，并评估当前短期逻辑与长期逻辑的验证进度。
     </p>
-    <div class="disclaimer">
-      分析基于投资逻辑框架 + 信息中心数据 + 公开市场信息，不构成投资建议 · 更新日期：2026年4月16日
+  </div>
+
+  <!-- KEY METRICS -->
+  <div class="metrics-strip reveal">
+    <div class="metric">
+      <div class="m-value">12.9亿</div>
+      <div class="m-label">2025 营收</div>
+    </div>
+    <div class="metric">
+      <div class="m-value accent">+103%</div>
+      <div class="m-label">营收同比增速</div>
+    </div>
+    <div class="metric">
+      <div class="m-value">5000万</div>
+      <div class="m-label">H2 经调整净利润</div>
+    </div>
+    <div class="metric">
+      <div class="m-value">62%</div>
+      <div class="m-label">整体毛利率</div>
+    </div>
+    <div class="metric">
+      <div class="m-value accent">90%+</div>
+      <div class="m-label">客户留存率</div>
+    </div>
+    <div class="metric">
+      <div class="m-value">559万</div>
+      <div class="m-label">ARPU（同比+100%）</div>
+    </div>
+    <div class="metric">
+      <div class="m-value">290万</div>
+      <div class="m-label">人均创收（+135%）</div>
+    </div>
+    <div class="metric">
+      <div class="m-value">1.5%</div>
+      <div class="m-label">资产负债率</div>
     </div>
   </div>
-</section>
 
-<footer>
-  迅策科技深度研究 · xunce-research skill · 2026.04.16
-</footer>
+  <!-- SECTION 1: POSITIONING -->
+  <div class="section reveal" id="positioning">
+    <div class="section-num">Section I</div>
+    <h2>公司定位与核心壁垒</h2>
+    <p class="lead">
+      迅策科技成立于2016年，2025年12月30日登陆港交所。公司专注实时数据基础设施及分析平台，是<strong>全球唯二</strong>（另一为Palantir）覆盖数据"获取→清洗→标准化→Agent应用→大模型调优"全链路的AI数据基础设施厂商。
+    </p>
+
+    <h3>1.1 数据中枢定位</h3>
+    <p>
+      迅策的平台以乐高式模块化架构深度部署于客户私有云或本地系统，扮演数据中枢角色——向左汇总异构数据，向右输出智能决策数据，实现即插即用。截至2025H1，已开发超300个模块，功能覆盖实时数据基础设施及数据分析全套。
+    </p>
+    <p>
+      AI大模型时代，迅策从SaaS工具商跃迁至AI Agent赋能者，定位从工具转化为AI Agent，在云原生统一数据平台基础上提供AI实时数据基础设施建设及分析解决方案。
+    </p>
+
+    <h3>1.2 核心壁垒：替换成本极高</h3>
+    <p>
+      平台深度部署于客户系统形成数据中枢角色，替换成本极高。客户从局部试点走向全业务流程嵌入，形成深度绑定。客户留存率保持在90%以上——这不是SaaS的合同锁定，而是业务流程的深度嵌入。每个AI推理调用都经过迅策的管道，Token化计费让它直接从AI推理浪潮中按次收费。
+    </p>
+
+    <div class="callout insight">
+      <div class="co-label">Core Insight</div>
+      <p>迅策卖的不是工具，是客户决策流程的数据"神经系统"。这决定了它的粘性远高于一般SaaS。90%+留存率不是靠合同锁的，是靠业务流程深度嵌入。</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: FINANCIALS -->
+  <div class="section reveal" id="financials">
+    <div class="section-num">Section II</div>
+    <h2>财务分析</h2>
+    <p class="lead">
+      2025年财务呈现爆发式增长与盈利拐点。收入翻倍但费用率从92%降至62%，经营杠杆明显释放——<strong>这不是靠堆人换增长，而是产品标准化+客户深化驱动的质量增长</strong>。
+    </p>
+
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>指标</th>
+            <th>数值</th>
+            <th>变化</th>
+            <th>解读</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>营业收入</td>
+            <td class="mono">12.9亿元</td>
+            <td><span class="tag positive">↑ +103%</span></td>
+            <td>下半年10.87亿，环比+449%，呈加速态势</td>
+          </tr>
+          <tr>
+            <td>经调整净利润</td>
+            <td class="mono">5000万（H2）</td>
+            <td><span class="tag positive">首次盈利</span></td>
+            <td>盈利拐点确立，意义重大</td>
+          </tr>
+          <tr>
+            <td>毛利率（整体/资管）</td>
+            <td class="mono">62% / >70%</td>
+            <td><span class="tag positive">稳定</span></td>
+            <td>资管已是优质水平，非资管拖后腿</td>
+          </tr>
+          <tr>
+            <td>三费占比</td>
+            <td class="mono">62%</td>
+            <td><span class="tag positive">↓ 从92%</span></td>
+            <td>规模效应释放，经营杠杆启动</td>
+          </tr>
+          <tr>
+            <td>ARPU</td>
+            <td class="mono">559万元</td>
+            <td><span class="tag positive">↑ +100%</span></td>
+            <td>单客价值翻倍，客户在加深使用</td>
+          </tr>
+          <tr>
+            <td>人均创收</td>
+            <td class="mono">290万元</td>
+            <td><span class="tag positive">↑ +135%</span></td>
+            <td>448人团队，轻资产模型跑通</td>
+          </tr>
+          <tr>
+            <td>应收账期</td>
+            <td class="mono">131天</td>
+            <td><span class="tag positive">↓ 从163天</span></td>
+            <td>回款加速，收入质量改善</td>
+          </tr>
+          <tr>
+            <td>客户数</td>
+            <td class="mono">230个</td>
+            <td><span class="tag info">留存 90%+</span></td>
+            <td>绝对数量不多，走精耕路线</td>
+          </tr>
+          <tr>
+            <td>在手现金 / 负债率</td>
+            <td class="mono">>10亿 / 1.5%</td>
+            <td><span class="tag positive">极稳健</span></td>
+            <td>几乎零杠杆，财务极健康</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout insight">
+      <div class="co-label">Key Finding</div>
+      <p>人均创收290万元在软件行业属于顶级水平。收入翻倍但费用率大幅下降，说明经营杠杆已启动——规模越大，利润弹性越强。</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: BUSINESS MODEL -->
+  <div class="section reveal" id="business">
+    <div class="section-num">Section III</div>
+    <h2>商业模式跃迁</h2>
+    <p class="lead">
+      迅策的商业模式正在经历根本性变化，<strong>三次跃迁每次都意味着更高毛利率、更强可预测性、更大收入弹性</strong>。
+    </p>
+
+    <div class="evolution">
+      <div class="evo-stage">
+        <div class="evo-num">Phase 1</div>
+        <div class="evo-title">项目制</div>
+        <div class="evo-desc">靠实施交付，毛利受限，不可预测</div>
+        <div class="evo-pct">81%</div>
+        <div class="evo-arrow">›</div>
+      </div>
+      <div class="evo-stage current">
+        <div class="evo-num">Phase 2 · 当前</div>
+        <div class="evo-title">订阅/交易制</div>
+        <div class="evo-desc">标准化提升，交易模式占比升至91%</div>
+        <div class="evo-pct">91%</div>
+        <div class="evo-arrow">›</div>
+      </div>
+      <div class="evo-stage">
+        <div class="evo-num">Phase 3 · 未来</div>
+        <div class="evo-title">Token按量计费</div>
+        <div class="evo-desc">当前5%，目标2026年底20–30%</div>
+        <div class="evo-pct" style="color:var(--semantic-caution)">5%→30%</div>
+      </div>
+    </div>
+
+    <h3>3.1 Token模式的本质</h3>
+    <p>
+      从"卖工具"变成"卖数据燃料"——每多一次AI推理调用，迅策就多赚一份钱。定价维度涵盖：单次调用Token价格 × 调用次数 × 模块应用个数，并探索按价值增量效果分成。当前Token付费模式营收占比约5%，目标2026年底提升至20%–30%，未来2–3年成为营收重要组成。
+    </p>
+
+    <h3>3.2 产业趋势硬支撑</h3>
+    <p>
+      2026年3月中国日均Token调用量已超140万亿，相比2024年初的1000亿增长超1000倍。席卷整个AI行业的Token涨价潮，进一步放大了迅策在资本市场的吸引力。不同于算力厂商赚取Token生产的钱，迅策的核心价值在于为Token调用增效。
+    </p>
+
+    <h3>3.3 估值逻辑的升维</h3>
+    <p>
+      市场对迅策的估值正从"按调用量计费的规模逻辑"，升维为"单位Token利润 × 稀缺溢价系数的质量逻辑"。只要单位Token分成率提升，利润弹性便可实现指数级释放。市场正在将其按"中国版Palantir / 金融AI基础设施"进行估值重估。中信证券首次覆盖给出160港元目标价（"增持"评级）。
+    </p>
+
+    <div class="callout insight">
+      <div class="co-label">Core Insight</div>
+      <p>Token化计费不仅是收入模式的变化，更是估值体系的重塑——从PS估值走向单位Token利润乘数估值，这是"中国版Palantir"叙事的真正内核。</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: LOGIC VALIDATION -->
+  <div class="section reveal" id="validation">
+    <div class="section-num">Section IV</div>
+    <h2>投资逻辑验证</h2>
+    <p class="lead">
+      基于投资逻辑框架，逐一比对短期与长期逻辑在当前市场中的验证进度。
+    </p>
+
+    <div class="logic-checks">
+      <div class="logic-box">
+        <h3><span class="ltype short">短期逻辑</span></h3>
+        <div class="check-item">
+          <span class="check-icon pass">✓</span>
+          <span>AI数据基础设施叙事持续升温——行业共识从"大模型竞争"转向"AI落地竞争"</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon pass">✓</span>
+          <span>Token工厂叙事升温——Token涨价潮 + 日均140万亿调用量</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon pass">✓</span>
+          <span>阶段性盈利改善——2025H2首次盈利5000万元</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon pass">✓</span>
+          <span>市场已开始估值重估——上市百天股价涨超6倍，市值破千亿港元</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon warn">⚠</span>
+          <span>当前估值已不便宜——4月7日收盘220港元/股，市值约710亿港元，PS约55倍</span>
+        </div>
+      </div>
+      <div class="logic-box">
+        <h3><span class="ltype long">长期逻辑</span></h3>
+        <div class="check-item">
+          <span class="check-icon pass">✓</span>
+          <span>资管基本盘扎实——毛利率>70%，留存率90%+</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon pass">✓</span>
+          <span>产品标准化推进——300+模块、乐高式架构、即插即用</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon pass">✓</span>
+          <span>收入结构改善——交易模式占比从81%→91%</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon warn">⏳</span>
+          <span>非金融行业复制——还在早期，需标杆案例验证</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon warn">⏳</span>
+          <span>海外业务——2026年目标营收占比10–15%，进展待跟踪</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon warn">⏳</span>
+          <span>毛利率进一步提升——取决于实施交付占比能否持续下降</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: TRACKING -->
+  <div class="section reveal" id="tracking">
+    <div class="section-num">Section V</div>
+    <h2>核心跟踪变量</h2>
+    <p>
+      按重要性排序，以下变量决定迅策投资逻辑的演进方向，需持续跟踪更新。
+    </p>
+
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>跟踪变量</th>
+            <th>当前状态</th>
+            <th>重要性</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">1</td>
+            <td>AI Token商业化落地进度</td>
+            <td><span class="tag caution">⏳ 5%→目标20–30%</span></td>
+            <td class="stars">★★★★★</td>
+          </tr>
+          <tr>
+            <td class="mono">2</td>
+            <td>Token分成率 / 单位Token利润</td>
+            <td><span class="tag info">🔍 未披露，关键变量</span></td>
+            <td class="stars">★★★★★</td>
+          </tr>
+          <tr>
+            <td class="mono">3</td>
+            <td>资管头部客户续费率</td>
+            <td><span class="tag positive">✓ 90%+</span></td>
+            <td class="stars">★★★★</td>
+          </tr>
+          <tr>
+            <td class="mono">4</td>
+            <td>标准化收入占比</td>
+            <td><span class="tag positive">✓ 交易模式91%</span></td>
+            <td class="stars">★★★★</td>
+          </tr>
+          <tr>
+            <td class="mono">5</td>
+            <td>非金融行业标杆复制</td>
+            <td><span class="tag caution">⏳ 待验证</span></td>
+            <td class="stars">★★★★</td>
+          </tr>
+          <tr>
+            <td class="mono">6</td>
+            <td>单客户年均合同额提升</td>
+            <td><span class="tag positive">✓ ARPU 559万</span></td>
+            <td class="stars">★★★</td>
+          </tr>
+          <tr>
+            <td class="mono">7</td>
+            <td>毛利率 vs 实施交付依赖度</td>
+            <td><span class="tag info">🔍 整体62%，有空间</span></td>
+            <td class="stars">★★★</td>
+          </tr>
+          <tr>
+            <td class="mono">8</td>
+            <td>与大厂合作渠道转化率</td>
+            <td><span class="tag info">🔍 缺乏公开信息</span></td>
+            <td class="stars">★★★</td>
+          </tr>
+          <tr>
+            <td class="mono">9</td>
+            <td>Palantir式方案国内监管适配</td>
+            <td><span class="tag info">🔍 金融数据合规长期变量</span></td>
+            <td class="stars">★★</td>
+          </tr>
+          <tr>
+            <td class="mono">10</td>
+            <td>恺域科技等关联方业务协同边界</td>
+            <td><span class="tag info">🔍 边界不清，需持续观察</span></td>
+            <td class="stars">★★</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 6: RISKS -->
+  <div class="section reveal" id="risks">
+    <div class="section-num">Section VI</div>
+    <h2>风险提示</h2>
+    <p>
+      以下风险因素需在投资决策中予以充分考量。
+    </p>
+
+    <ul class="risk-list">
+      <li>
+        <div class="risk-level high">高风险</div>
+        <div class="risk-body">
+          <h4>估值已充分反映预期</h4>
+          <p>千亿市值对应12.9亿营收，PS约55倍。股价6倍涨幅后回调风险不可忽视，情绪退潮时估值回调可能剧烈。</p>
+        </div>
+      </li>
+      <li>
+        <div class="risk-level high">高风险</div>
+        <div class="risk-body">
+          <h4>Token模式执行风险</h4>
+          <p>5%→20–30%的目标仍需时间验证。Token分成率未披露，若低于预期则估值升维逻辑不成立。</p>
+        </div>
+      </li>
+      <li>
+        <div class="risk-level medium">中风险</div>
+        <div class="risk-body">
+          <h4>行业复制天花板</h4>
+          <p>非金融行业复制若不及预期，增长天花板受限。当前收入仍高度依赖资管行业。</p>
+        </div>
+      </li>
+      <li>
+        <div class="risk-level medium">中风险</div>
+        <div class="risk-body">
+          <h4>港股流动性波动</h4>
+          <p>港股市场流动性敏感，南向资金和外资情绪对股价影响大，波动性高于A股/美股。</p>
+        </div>
+      </li>
+      <li>
+        <div class="risk-level medium">中风险</div>
+        <div class="risk-body">
+          <h4>监管合规风险</h4>
+          <p>金融数据基础设施的合规要求可能限制扩张速度，数据安全法和个人信息保护法带来不确定性。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- CONCLUSION -->
+  <div class="section reveal" id="conclusion">
+    <div class="conclusion">
+      <div class="section-num">Conclusion</div>
+      <h2>综合判断</h2>
+      <p>
+        迅策是AI数据基础设施赛道里<strong>基本面最扎实</strong>的中国公司。商业模式的三次跃迁——项目制→订阅制→Token制——每次都意味着更高毛利率和更强可预测性。90%+留存率说明客户粘性不是概念，140万亿日Token调用量是硬数据，首次盈利不是终点而是起点。
+      </p>
+      <p>
+        但千亿市值对应55倍PS已充分反映预期。Token模式从5%到20–30%仍需验证，非金融行业复制还在早期。<strong>长期逻辑清晰，但当前价位需要等待更好的介入时点，或等待Token模式进一步落地来消化估值。</strong>
+      </p>
+      <div class="disclaimer">
+        本报告基于投资逻辑框架、信息中心数据及公开市场信息撰写，不构成投资建议。投资有风险，决策需谨慎。<br>
+        更新日期：2026年4月16日
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  迅策科技深度研究报告 · xunce-research skill · 2026.04.16
+</div>
 
 <script>
-// Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 reveals.forEach(el => observer.observe(el));
 
-// Smooth nav scroll
-document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+document.querySelectorAll('.toc-inner a').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) {
+      const offset = document.querySelector('.toc-bar').offsetHeight + 16;
+      const top = t.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   });
 });
 </script>
